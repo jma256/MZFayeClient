@@ -217,6 +217,9 @@ NSInteger const MZFayeClientDefaultMaximumAttempts = 5;
  */
 - (void)sendBayeuxDisconnectMessage
 {
+    if (!self.clientId) {
+        return;
+    }
     NSDictionary *message = @{MZFayeClientBayeuxMessageChannelKey : MZFayeClientBayeuxChannelDisconnect,
                               MZFayeClientBayeuxMessageClientIdKey : self.clientId
                               };
